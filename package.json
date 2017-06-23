@@ -1,0 +1,22 @@
+{
+  "name": "react-rhythm",
+  "version": "0.0.0",
+  "description": "Low-level React components that deal with vertical rhythm.",
+  "main": "lib/index.js",
+  "repository": "git@github.com:oreqizer/react-rhythm.git",
+  "author": "oreqizer <oreqizer@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "tape -r babel-register src/**/*.spec.js",
+    "build": "babel src/ --out-dir lib/ --ignore __tests__"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.0",
+    "tape": "^4.6.3"
+  }
+}
