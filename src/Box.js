@@ -1,7 +1,8 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import { boxMargin, roundLines } from './math';
+import clearProps from './clearProps';
 
 
 function calcMarginTop(props) {
@@ -16,19 +17,30 @@ function calcMarginBottom(props) {
   return bonus + roundLines(props.baseLineRatio, props.baseFontSize, props.marginBottom);
 }
 
-const Box = styled.div`
-  box-sizing: border-box;
-  height: ${props => props.height * props.baseFontSize}px;
-  margin-top: ${calcMarginTop}px;
-  margin-bottom: ${calcMarginBottom}px;
-`;
+const Box = props => React.createElement(props.as, Object.assign(clearProps(props), {
+  style: {
+    boxSizing: 'border-box',
+    height: props.height * props.baseFontSize,
+    marginTop: calcMarginTop(props),
+    marginBottom: calcMarginBottom(props),
+  },
+}), props.children);
 
 Box.propTypes = {
+  as: PropTypes.string.isRequired,
   baseFontSize: PropTypes.number.isRequired,
   baseLineRatio: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   marginTop: PropTypes.number.isRequired,
   marginBottom: PropTypes.number.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+};
+
+Box.defaultProps = {
+  as: 'div',
 };
 
 export default Box;

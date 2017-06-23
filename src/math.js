@@ -8,7 +8,7 @@
 export function boxMargin(baseLineRatio, baseFontSize, scale) {
   const lines = Math.ceil(scale / baseLineRatio);
   const height = baseLineRatio * scale;
-  const leftover = (baseLineRatio * lines) - height;
+  const leftover = height - (baseLineRatio * lines);
 
   return (leftover / 2) * baseFontSize;
 }
