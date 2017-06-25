@@ -2712,9 +2712,9 @@ resumer@~0.0.0:
   dependencies:
     through "~2.3.4"
 
-rhythm-fns@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/rhythm-fns/-/rhythm-fns-0.2.0.tgz#55ec059348e2271a0bfdde43320f4a7efffdcbc3"
+rhythm-fns@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/rhythm-fns/-/rhythm-fns-0.2.1.tgz#0cb7cc689a62dff8a1513c1015de4c3cbad98f3b"
 
 right-align@^0.1.1:
   version "0.1.3"

@@ -35,7 +35,7 @@
     "react": "^15.6.1"
   },
   "dependencies": {
-    "rhythm-fns": "^0.2.0"
+    "rhythm-fns": "^0.2.1"
   },
   "files": [
     "lib",
