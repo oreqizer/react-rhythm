@@ -36,5 +36,10 @@
   },
   "dependencies": {
     "rhythm-fns": "^0.2.0"
-  }
+  },
+  "files": [
+    "lib",
+    "types",
+    "README.md"
+  ]
 }
