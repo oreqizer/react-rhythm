@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "tape -r babel-register src/**/*.spec.js",
+    "test:coverage": "nyc --reporter=lcov > coverage.lcov npm test",
     "lint": "eslint 'src/**/*.js'",
     "build": "babel src/ --out-dir lib/ --ignore __tests__",
     "clean": "rimraf lib dist",
@@ -21,17 +22,19 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.6.0",
+    "nyc": "^11.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
-    "styled-components": "^2.1.0",
     "tape": "^4.6.3"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "styled-components": "^2.1.0"
+    "react": "^15.6.1"
+  },
+  "dependencies": {
+    "rhythm-fns": "^0.2.0"
   }
 }

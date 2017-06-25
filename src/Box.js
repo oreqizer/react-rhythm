@@ -1,26 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getBoxHeight, getBoxMargin } from 'rhythm-fns';
 
-import { boxMargin, roundLines } from './math';
 import clearProps from './clearProps';
 
 
 function calcMarginTop(props) {
-  const bonus = boxMargin(props.baseLineRatio, props.baseFontSize, props.height);
-
-  return bonus + roundLines(props.baseLineRatio, props.baseFontSize, props.marginTop);
+  return getBoxMargin(props.baseFontSize, props.baseLineRatio, props.height, props.marginTop);
 }
 
 function calcMarginBottom(props) {
-  const bonus = boxMargin(props.baseLineRatio, props.baseFontSize, props.height);
-
-  return bonus + roundLines(props.baseLineRatio, props.baseFontSize, props.marginBottom);
+  return getBoxMargin(props.baseFontSize, props.baseLineRatio, props.height, props.marginBottom);
 }
 
 const Box = props => React.createElement(props.as, Object.assign(clearProps(props), {
   style: {
-    boxSizing: 'border-box',
-    height: props.height * props.baseFontSize,
+    height: getBoxHeight(props.baseFontSize, props.baseLineRatio, props.height),
     marginTop: calcMarginTop(props),
     marginBottom: calcMarginBottom(props),
   },

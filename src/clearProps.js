@@ -6,6 +6,7 @@ const remove = [
   'fontSize',
   'marginTop',
   'marginBottom',
+  'border',
   'children',
 ];
 

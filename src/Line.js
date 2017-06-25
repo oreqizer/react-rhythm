@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getLineHeight, getLineMargin } from 'rhythm-fns';
 
-import { roundLines } from './math';
 import clearProps from './clearProps';
 
 
 function calcMarginTop(props) {
-  return roundLines(props.baseLineRatio, props.baseFontSize, props.marginTop);
+  return getLineMargin(props.baseFontSize, props.baseLineRatio, props.marginTop, props.border);
 }
 
 function calcMarginBottom(props) {
-  return roundLines(props.baseLineRatio, props.baseFontSize, props.marginBottom);
+  return getLineMargin(props.baseFontSize, props.baseLineRatio, props.marginBottom, props.border);
 }
 
 const Line = props => React.createElement(props.as, Object.assign(clearProps(props), {
   style: {
     fontSize: props.fontSize * props.baseFontSize,
-    lineHeight: roundLines(props.baseLineRatio, props.baseFontSize, props.fontSize),
+    lineHeight: getLineHeight(props.baseFontSize, props.baseLineRatio, props.fontSize),
     marginTop: calcMarginTop(props),
     marginBottom: calcMarginBottom(props),
   },
@@ -29,6 +29,7 @@ Line.propTypes = {
   fontSize: PropTypes.number.isRequired,
   marginTop: PropTypes.number.isRequired,
   marginBottom: PropTypes.number.isRequired,
+  border: PropTypes.number,
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
